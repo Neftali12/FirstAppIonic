@@ -19,10 +19,10 @@ export class HomePage {
     this.focoEncendido = false;
     
     this.personas = [
-      {telefono: 4491842426,
-      nombreC: 'Bernardo Paredes',
-      notas: 'Programador Jr',
-      email:'berna@gmail.com'}
+      {telefono: 4495446745,
+      nombreC: 'Neftali Carranza',
+      notas: '¡Hola, mucho gusto!',
+      email:'neftiie.carranza@gmail.com'}
     ]
   }
 
@@ -38,7 +38,7 @@ export class HomePage {
       cssClass: 'my-custom-class',
       header: 'Exito',
       // subHeader: "<ion-card-header><ion-card-subtitle>{{this.email}}</ion-card-subtitle><ion-card-title>{{this.nombreC}}</ion-card-title></ion-card-header><ion-card-content>{{this.telefono}}</ion-card-content><ion-card-content>{{this.notas}}</ion-card-content><ion-button (click)='delete()' color='danger'><ion-icon name='close-outline'></ion-icon></ion-button>",
-      message: 'se agrego  '+ this.nombreC,
+      message: 'Se añadio a '+ this.nombreC,
       buttons: [
         {
           text: 'Cancel',
@@ -48,7 +48,7 @@ export class HomePage {
             console.log('Se presiono cancelar');
           }
         }, {
-          text: 'Okay',
+          text: 'Ok',
           handler: () => {
             console.log('Se presiono OK');
           }
@@ -56,7 +56,7 @@ export class HomePage {
       ]
     });
     if (this.nombreC == null) {
-      console.log('no hay nada');
+      console.log('No existe');
     }else      
     await alert.present();
     
@@ -88,12 +88,12 @@ export class HomePage {
             role: 'cancel',
             cssClass: 'secondary',
             handler: (blah) => {
-              console.log('Se presiono cancelar');
+              console.log('Seleccionaste cancelar');
             }
           }, {
             text: 'Okay',
             handler: () => {
-              console.log('Se presiono OK');
+              console.log('Seleccionaste ok');
               this.personas.splice(i,1);
               console.log(this.personas.splice(i,1));
               
