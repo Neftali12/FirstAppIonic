@@ -1,0 +1,65 @@
+<div style="color: red;">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>
+                Lista de contactos
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+</div>
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Blank</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <h3>Agregar Contacto</h3>
+    <ion-item>
+        <ion-label position="floating">Nombre Completo</ion-label>
+        <ion-input type="text" [(ngModel)]="nombreC" required="required"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input type="number" [(ngModel)]="telefono" required="required"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" required="required"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Notas</ion-label>
+        <ion-input type="text" [(ngModel)]="notas" required="required"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="presentAlert()" expand="full">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-button>
+
+    <h3>Mis Contactos</h3>
+
+    <label for="">Ver Notas</label>
+    <ion-toggle (click)="apagarEncender(!focoEncendido)" color="light"></ion-toggle>
+
+    <hr style="color: white;">
+    <ion-card *ngFor="let persona of personas; let i = index" id="card">
+        <ion-card-content>
+            {{this.personas[i].nombreC}}
+        </ion-card-content>
+        <ion-card-content>
+            {{this.personas[i].telefono}}
+        </ion-card-content>
+        <ion-card-content>
+            {{this.personas[i].email}}
+        </ion-card-content>
+        <div *ngIf="focoEncendido">
+            <ion-card-content class="toggle" *ngIf="!mostrarNotas">
+                {{this.personas[i].notas}}
+            </ion-card-content>
+        </div>
+        <ion-button (click)="borrar(i)" fill="outline" color="danger">X</ion-button>
+    </ion-card>
+</ion-content>
